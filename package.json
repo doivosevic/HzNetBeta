@@ -1,0 +1,26 @@
+{
+  "name": "hznet",
+  "version": "0.0.0",
+  "description": "aaa",
+  "main": "hznet.js",
+  "dependencies": {
+    "cheerio": "*" ,
+    "stylus": "*",
+    "express": "3.0.0alpha4",
+    "jade": "*",
+    "nib": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"sdasd\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gospondito/hznet.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/gospondito/hznet/issues"
+  }
+}
