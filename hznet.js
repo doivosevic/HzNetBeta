@@ -38,18 +38,16 @@ var options = {
     path: customPath,
     headers: {"Content-Type": "text/html; charset=windows-1250"}
 }
-var data = new Buffer(0);
 
 var request = http.request(options, function (res) {
-    
-
+	var data = new Buffer(0);
     res.on('data', function (chunk) {
         data = Buffer.concat([data, chunk]);
     });
     res.on('end', function () {
         //console.log(data);
-		playWithData();
-		displayData();
+		playWithData(data);
+		displayData(data);
     });
 });
 request.end();
@@ -58,7 +56,7 @@ request.end();
 var dolazak = new Array();
 var polazak = new Array();
 
-function playWithData(){
+function playWithData(data){
 	var $ = cheerio.load(data);
 
 	// DOLAZAK BOG TE JEBO
@@ -91,15 +89,15 @@ function playWithData(){
 	});
 }
 
-function displayData(){
+function displayData(data){
 	for (var i=0;i<dolazak.length;++i)
 		console.log(polazak[i] + " " + dolazak[i]);
 }
 
-http.createServer(function(req,res){
-	res.writeHead(200, {'Content-Type': 'text/plain'});
-	res.write(data);
+app.get("/", function (req,res){
+	//res.writeHead(200, {'Content-Type': 'text/plain'});
+	res.render("index", {polazak:polazak, dolazak:dolazak})
 	res.end();
 	console.log("server running");
-}).listen(1000);
-	
+})
+app.listen(1000);
