@@ -8,7 +8,8 @@
     "stylus": "*",
     "express": "3.0.0alpha4",
     "jade": "*",
-    "nib": "*"
+    "nib": "*",
+    "iconv": "*"
   },
   "devDependencies": {},
   "scripts": {

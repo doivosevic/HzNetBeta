@@ -2,6 +2,7 @@ var http = require('http');
 var cheerio = require('cheerio');
 var express = require('express');
 var stylus = require('stylus');
+var nib = require('nib');
 var app = express();
 
 // PATH ZA HZNET
@@ -33,71 +34,101 @@ app.use(stylus.middleware(
 	}))
 app.use(express.static(__dirname + '/public'));
 
+
 var options = {
     host: 'vred.hzinfra.hr',
     path: customPath,
     headers: {"Content-Type": "text/html; charset=windows-1250"}
 }
 
-var request = http.request(options, function (res) {
+var dolazak = new Array();
+var polazak = new Array();
+
+var request1 = http.request(options, function (res) {
 	var data = new Buffer(0);
     res.on('data', function (chunk) {
         data = Buffer.concat([data, chunk]);
     });
     res.on('end', function () {
-        //console.log(data);
-		playWithData(data);
-		displayData(data);
-    });
-});
-request.end();
+        //console.log(String.fromCharCode(data));
+        var $ = cheerio.load(data);
 
+		// DOLAZAK BOG TE JEBO
+		$('td', 'table').filter(function (i,el){
+			return $(this).attr('width') == '8%';
+			}).each(function (i,link){
+				if (i%2==0) dolazak.push((this).html());
+				});
 
-var dolazak = new Array();
-var polazak = new Array();
-
-function playWithData(data){
-	var $ = cheerio.load(data);
-
-	// DOLAZAK BOG TE JEBO
-	$('td', 'table').filter(function (i,el){
-		return $(this).attr('width') == '8%';
-		}).each(function (i,link){
-			if (i%2==0) dolazak.push((this).html());
-
-			if (true){
+		// POLAZAK BOG TE JEBO
+		$('td', 'table').filter(function (i,el){
+				return $(this).attr('width') == '10%';
+			}).each(function (i,link){
 				//console.log($(this).text());
-				//console.log(i);
-				$(this).parent().each(function(i,link){
-				//console.log($(this).html());
-				//console.log(":::");
-				})
-				//console.log(":::::");
-				//console.log($(this).html());
-				//console.log(":_:_:_");
-				//console.log(i);
-				//console.log("____________");
-			}
-		})
-
-	// POLAZAK BOG TE JEBO
-	$('td', 'table').filter(function (i,el){
-			return $(this).attr('width') == '10%';
-		}).each(function (i,link){
-			//console.log($(this).text());
-			polazak.push($(this).text());
+				polazak.push($(this).text());
+		});
+			//displayData(data);
 	});
+	console.log("request1 ran");
+});
+request1.end();
+
+
+var options2 = {
+    host: 'vred.hzinfra.hr',
+    path: '/hzinfo/default.asp?Category=hzinfo&Service=vred3',
+    headers: {"Accept-Charset": "Windows-1250,utf-8;ISO-8859-3,utf-8;ISO-8859-2,utf-8", "Content-Type": "text/html; charset=ISO-8859-2" }
 }
+
+var popis = new Array();
+var request2 = http.request(options2, function (res){
+	var data = new Buffer(0);
+	res.on('data', function (chunk) {
+		data = Buffer.concat([data,chunk]);
+	});
+	res.on('end', function () {
+		var stan="";
+		popis = new Array();
+		var popisAlpha = new Array();
+		console.log(data.toString());
+		var $ = cheerio.load(data);
+
+		$('script').each(function (i,link){
+			if (i==1){
+				//popis.push("AAČŠĆŽĐ");
+				stan = $(this).toString();
+				stan = stan.substring(stan.search('arrSTANICE = new Array'),stan.search('ddUtil'));
+				popisAlpha = stan.split('"');
+				for (var i=3;i<popisAlpha.length;i+=2){
+					popis.push(popisAlpha[i]);
+				}
+				for (var i=0;i<popis[4].length;++i){
+					//console.log(popis[4].charCodeAt(i));
+					console.log(popis[4][i]);
+				}
+			}
+		});
+	});
+	console.log("request2 ran");
+});
+request2.end();
+
+
 
 function displayData(data){
 	for (var i=0;i<dolazak.length;++i)
 		console.log(polazak[i] + " " + dolazak[i]);
 }
 
-app.get("/", function (req,res){
+app.get("/", function (req,res) {
+	res.render("intro", {popis:popis});
+	res.end();
+});
+
+app.get("/raspored", function (req,res){
 	//res.writeHead(200, {'Content-Type': 'text/plain'});
-	res.render("index", {polazak:polazak, dolazak:dolazak})
+	res.render("raspored", {polazak:polazak, dolazak:dolazak});
 	res.end();
 	console.log("server running");
-})
+});
 app.listen(1000);

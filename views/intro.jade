@@ -1,0 +1,13 @@
+!!!5
+html
+	head
+		title Intro
+		link(rel="stylesheet", href="/intro.css")
+		link(href="http://fonts.googleapis.com/css?family=Open+Sans:400,300", rel="stylesheet" type="text/css")
+	body
+		#glavnidio
+			form(action="/raspored" method=post)
+				input(list = "polaziste")
+				datalist#polaziste
+					for pol,i in popis
+						option(value = pol)

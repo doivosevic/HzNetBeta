@@ -1,0 +1,16 @@
+!!!5
+html
+	head
+		title A de je vlak
+		link(rel="stylesheet", href="/raspored.css")
+		link(href="http://fonts.googleapis.com/css?family=Open+Sans:400,300", rel="stylesheet" type="text/css")
+	body
+		#glavnidio
+			.prijepodne
+				for pol,i in polazak
+					if i <= polazak.length/2
+						p #{polazak[i]}  #{dolazak[i]}
+			.poslijepodne
+				for pol,i in polazak
+					if i > polazak.length/2
+						p #{polazak[i]}  #{dolazak[i]}
