@@ -18,6 +18,7 @@ html
 
 			#main
 				form(action="/raspored" method=post)
+					label("for"="polaziste")Polaziste
 					input(type="list" id="polaziste")
 					datalist#polaziste
 						for pol,i in popis
