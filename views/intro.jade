@@ -4,10 +4,21 @@ html
 		title Intro
 		link(rel="stylesheet", href="/intro.css")
 		link(href="http://fonts.googleapis.com/css?family=Open+Sans:400,300", rel="stylesheet" type="text/css")
+		meta(charset="utf-8")
 	body
-		#glavnidio
-			form(action="/raspored" method=post)
-				input(list = "polaziste")
-				datalist#polaziste
-					for pol,i in popis
-						option(value = pol)
+		#content
+			#header
+				#logotext
+					#logoMtext Vlak
+					#logoBtext A de je vlak?
+
+				#headerlinks
+					p link1
+					p link2
+
+			#main
+				form(action="/raspored" method=post)
+					input(type="list" id="polaziste")
+					datalist#polaziste
+						for pol,i in popis
+							option(value = pol)

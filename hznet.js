@@ -53,14 +53,14 @@ var request1 = http.request(options, function (res) {
         //console.log(String.fromCharCode(data));
         var $ = cheerio.load(data);
 
-		// DOLAZAK BOG TE JEBO
+		// DOLAZAK
 		$('td', 'table').filter(function (i,el){
 			return $(this).attr('width') == '8%';
 			}).each(function (i,link){
 				if (i%2==0) dolazak.push((this).html());
 				});
 
-		// POLAZAK BOG TE JEBO
+		// POLAZAK
 		$('td', 'table').filter(function (i,el){
 				return $(this).attr('width') == '10%';
 			}).each(function (i,link){
@@ -82,7 +82,7 @@ var options2 = {
 
 var popis = new Array();
 var request2 = http.request(options2, function (res){
-	var data = new Buffer(0);
+	var data = new Buffer(0,'utf-8');
 	res.on('data', function (chunk) {
 		data = Buffer.concat([data,chunk]);
 	});
@@ -90,21 +90,17 @@ var request2 = http.request(options2, function (res){
 		var stan="";
 		popis = new Array();
 		var popisAlpha = new Array();
-		console.log(data.toString());
-		var $ = cheerio.load(data);
+		//console.log(decodeBuffer(data));
+		var $ = cheerio.load(decodeBuffer(data));
 
 		$('script').each(function (i,link){
 			if (i==1){
 				//popis.push("AAČŠĆŽĐ");
-				stan = $(this).toString();
+				stan = $(this).toString('utf-8');
 				stan = stan.substring(stan.search('arrSTANICE = new Array'),stan.search('ddUtil'));
 				popisAlpha = stan.split('"');
 				for (var i=3;i<popisAlpha.length;i+=2){
 					popis.push(popisAlpha[i]);
-				}
-				for (var i=0;i<popis[4].length;++i){
-					//console.log(popis[4].charCodeAt(i));
-					console.log(popis[4][i]);
 				}
 			}
 		});
@@ -132,3 +128,45 @@ app.get("/raspored", function (req,res){
 	console.log("server running");
 });
 app.listen(1000);
+
+
+function decodeBuffer(body){
+  var str = "";
+  for (var i = 0; i < body.length; ++i){
+   switch(body[i]){
+    case 138:
+     str += "Š";
+     break;
+    case 154:
+     str += "š";
+     break;
+    case 208:
+     str += "Đ";
+     break;
+    case 240:
+     str += "đ";
+     break;
+    case 200:
+     str += "Č";
+     break;
+    case 232:
+     str += "č";
+     break;
+    case 198:
+     str += "Ć";
+     break;
+    case 230:
+     str += "ć";
+     break;
+    case 142:
+     str += "Ž";
+     break;
+    case 158:
+     str += "ž";
+     break;
+    default:
+     str += String.fromCharCode(body[i]);
+   }
+  }
+  return str;
+}
