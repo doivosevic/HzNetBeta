@@ -4,12 +4,12 @@
   "description": "aaa",
   "main": "hznet.js",
   "dependencies": {
-    "cheerio": "*" ,
-    "stylus": "*",
-    "express": "3.0.0alpha4",
-    "jade": "*",
-    "nib": "*",
-    "nodemon": "*"
+    "cheerio": ">= 0.0.0",
+    "stylus": ">= 0.0.0",
+    "express": ">= 0.0.0",
+    "jade": ">= 0.0.0",
+    "nib": ">= 0.0.0",
+    "nodemon": ">= 0.0.0"
   },
   "devDependencies": {},
   "scripts": {

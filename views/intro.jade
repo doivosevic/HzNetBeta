@@ -17,9 +17,15 @@ html
 					p link2
 
 			#main
-				form(action="/raspored" method=post)
-					label("for"="polaziste")Polaziste
-					input(type="list" id="polaziste")
+				form(action="/raspored", method="post")
+					label(for="polaziste") Polaziste
+					input(list="polaziste", name="polaziste")
 					datalist#polaziste
-						for pol,i in popis
-							option(value = pol)
+						each pol in popis
+							option(value=pol)
+					label(for="dolaziste") Dolaziste
+					input(list="dolaziste", name="dolaziste")
+					datalist#dolaziste
+						each dol in popis
+							option(value=dol)
+					input(type="submit", value="submit") Submito

@@ -6,11 +6,8 @@ html
 		link(href="http://fonts.googleapis.com/css?family=Open+Sans:400,300", rel="stylesheet" type="text/css")
 	body
 		#glavnidio
-			.prijepodne
-				for pol,i in polazak
-					if i <= polazak.length/2
-						p #{polazak[i]}  #{dolazak[i]}
-			.poslijepodne
-				for pol,i in polazak
-					if i > polazak.length/2
-						p #{polazak[i]}  #{dolazak[i]}
+			for pol,i in polazak
+				if i < polazak.length
+					div.timebox
+						div.timepol.time #{polazak[i]}
+						div.timedol.time #{dolazak[i]}

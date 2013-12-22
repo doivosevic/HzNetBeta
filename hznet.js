@@ -5,20 +5,6 @@ var stylus = require('stylus');
 var nib = require('nib');
 var app = express();
 
-// PATH ZA HZNET
-var ppath1 = "/hzinfo/default.asp?NKOD1=VRAP%C8E&ddList1=VRAP%C8E&ODH=&NKDO1=ZAGREB+GL.+KOL.&ddList2=ZAGREB+GL.+KOL.&DOH=&K1=&K2=&DT=09.11.13&DV=D&Category=hzinfo&Service=Vred3&LANG=HR&SCREEN=2";
-var ppath2 = "/hzinfo/default.asp?NKOD1=ZAGREB+GL.+KOL.&ddList1=ZAGREB+GL.+KOL.&ODH=&NKDO1=LUDBREG&ddList2=LUDBREG&DOH=&K1=&K2=&DT=06.11.13&DV=S&Category=hzinfo&Service=vred3&LANG=HR&SCREEN=2"
-// **POL** polazni **DOL** dolazni **DATE** datum **DIR** s vezom/bez (D/S)
-var defPath = "/hzinfo/default.asp?NKOD1=**POL**&ddList1=**POL**&ODH=&NKDO1=**DOL**&ddList2=**DOL**&DOH=&K1=&K2=&DT=**DATE**&DV=**DIR**&Category=hzinfo&Service=Vred3&LANG=HR&SCREEN=2"
-var customPath = "";
-
-function setPath(customPol,customDol,customDate,customDir){
-	customPath = defPath.replace("**POL**", customPol).replace("**DOL**", customDol).replace("**DATE**",customDate).replace("**DIR**", customDir);
-}
-function setPath1(){ setPath("VRAP%C8E","ZAGREB+GL.+KOL.","11.11.13","D"); }
-function setPath2(){ setPath("ZAGREB+GL.+KOL.","LUDBREG","11.11.13","S"); }
-
-setPath1();
 
 function compile(str,path) {
 	return stylus(str)
@@ -28,107 +14,143 @@ function compile(str,path) {
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded());
 app.use(stylus.middleware(
 	{	src: __dirname + '/public'
 	,	compile: compile
 	}))
 app.use(express.static(__dirname + '/public'));
 
-
-var options = {
-    host: 'vred.hzinfra.hr',
-    path: customPath,
-    headers: {"Content-Type": "text/html; charset=windows-1250"}
-}
-
 var dolazak = new Array();
 var polazak = new Array();
 
-var request1 = http.request(options, function (res) {
-	var data = new Buffer(0);
-    res.on('data', function (chunk) {
-        data = Buffer.concat([data, chunk]);
-    });
-    res.on('end', function () {
-        //console.log(String.fromCharCode(data));
-        var $ = cheerio.load(data);
+function getNewPlan(customPol, customDol, customDate, customDir, callback){
+	// PATH ZA HZNET
+	//var ppath1 = "/hzinfo/default.asp?NKOD1=VRAP%C8E&ddList1=VRAP%C8E&ODH=&NKDO1=ZAGREB+GL.+KOL.&ddList2=ZAGREB+GL.+KOL.&DOH=&K1=&K2=&DT=09.11.13&DV=D&Category=hzinfo&Service=Vred3&LANG=HR&SCREEN=2";
+	//var ppath2 = "/hzinfo/default.asp?NKOD1=ZAGREB+GL.+KOL.&ddList1=ZAGREB+GL.+KOL.&ODH=&NKDO1=LUDBREG&ddList2=LUDBREG&DOH=&K1=&K2=&DT=06.11.13&DV=S&Category=hzinfo&Service=vred3&LANG=HR&SCREEN=2"
+	// **POL** polazni **DOL** dolazni **DATE** datum **DIR** s vezom/bez (D/S)
+	customPol=toKurac(customPol);
+	customDol=toKurac(customDol);
 
-		// DOLAZAK
-		$('td', 'table').filter(function (i,el){
-			return $(this).attr('width') == '8%';
-			}).each(function (i,link){
-				if (i%2==0) dolazak.push((this).html());
-				});
+	var defPath = "/hzinfo/default.asp?NKOD1=xxPOLxxx&ddList1=xxPOLxxx&ODH=&NKDO1=xxDOLxxx&ddList2=xxDOLxxx&DOH=&K1=&K2=&DT=xxDATExxx&DV=xxDIRxxx&Category=hzinfo&Service=Vred3&LANG=HR&SCREEN=2"
+	var customPath = defPath.replace(/xxPOLxxx/gi, customPol)
+							.replace(/xxDOLxxx/gi, customDol)
+							.replace(/xxDATExxx/gi,customDate)
+							.replace(/xxDIRxxx/gi, customDir);
+	//function setPath1(){ setPath("VRAP%C8E","ZAGREB+GL.+KOL.","21.12.13","D"); }
+	//function setPath2(){ setPath("ZAGREB+GL.+KOL.","LUDBREG","21.12.13","S"); }
+	var options = {
+	    host: 'vred.hzinfra.hr',
+	    path: customPath,
+	    headers: {"Content-Type": "text/html; charset=windows-1250"}
+	}
 
-		// POLAZAK
-		$('td', 'table').filter(function (i,el){
-				return $(this).attr('width') == '10%';
-			}).each(function (i,link){
-				//console.log($(this).text());
-				polazak.push($(this).text());
+	var request1 = http.request(options, function (res) {
+		var data = new Buffer(0);
+		dolazak = new Array();
+		polazak = new Array();
+	    res.on('data', function (chunk) {
+	        data = Buffer.concat([data, chunk]);
+	    });
+	    res.on('end', function () {
+	        //console.log(String.fromCharCode(data));
+	        //console.log(options.path);
+	        var $ = cheerio.load(data);
+
+			// DOLAZAK
+			$('td', 'table').filter(function (i,el){
+				return $(this).attr('width') == '8%';
+				}).each(function (i,link){
+					if (i%2==0) dolazak.push((this).html());
+					});
+
+			// POLAZAK
+			$('td', 'table').filter(function (i,el){
+					return $(this).attr('width') == '10%';
+				}).each(function (i,link){
+					//console.log($(this).text());
+					polazak.push($(this).text());
+			});
+			callback();
+				//displayData(data);
 		});
-			//displayData(data);
 	});
-	console.log("request1 ran");
-});
-request1.end();
-
-
-var options2 = {
-    host: 'vred.hzinfra.hr',
-    path: '/hzinfo/default.asp?Category=hzinfo&Service=vred3',
-    headers: {"Accept-Charset": "Windows-1250,utf-8;ISO-8859-3,utf-8;ISO-8859-2,utf-8", "Content-Type": "text/html; charset=ISO-8859-2" }
+	request1.end();
+	console.log("getNewPlan ran");
 }
 
 var popis = new Array();
-var request2 = http.request(options2, function (res){
-	var data = new Buffer(0,'utf-8');
-	res.on('data', function (chunk) {
-		data = Buffer.concat([data,chunk]);
-	});
-	res.on('end', function () {
-		var stan="";
-		popis = new Array();
-		var popisAlpha = new Array();
-		//console.log(decodeBuffer(data));
-		var $ = cheerio.load(decodeBuffer(data));
 
-		$('script').each(function (i,link){
-			if (i==1){
-				//popis.push("AAČŠĆŽĐ");
-				stan = $(this).toString('utf-8');
-				stan = stan.substring(stan.search('arrSTANICE = new Array'),stan.search('ddUtil'));
-				popisAlpha = stan.split('"');
-				for (var i=3;i<popisAlpha.length;i+=2){
-					popis.push(popisAlpha[i]);
+function getStationsArray(callback){
+	var options2 = {
+    	host: 'vred.hzinfra.hr',
+    	path: '/hzinfo/default.asp?Category=hzinfo&Service=vred3',
+    	headers: {"Accept-Charset": "Windows-1250,utf-8;ISO-8859-3,utf-8;ISO-8859-2,utf-8", "Content-Type": "text/html; charset=ISO-8859-2" }
+	}
+	var request2 = http.request(options2, function (res){
+		var data = new Buffer(0,'utf-8');
+		res.on('data', function (chunk) {
+			data = Buffer.concat([data,chunk]);
+		});
+		res.on('end', function () {
+			var stan="";
+			popis = new Array();
+			var popisAlpha = new Array();
+			//console.log(decodeBuffer(data));
+			var $ = cheerio.load(decodeBuffer(data));
+
+			$('script').each(function (i,link){
+				if (i==1){
+					//popis.push("AAČŠĆŽĐ");
+					stan = $(this).toString('utf-8');
+					stan = stan.substring(stan.search('arrSTANICE = new Array'),stan.search('ddUtil'));
+					popisAlpha = stan.split('"');
+					//console.log(popisAlpha);
+					for (var i=3;i<popisAlpha.length;i+=2){
+						popis.push(popisAlpha[i]);
+					}
 				}
-			}
+			});
+			callback();
 		});
 	});
-	console.log("request2 ran");
-});
-request2.end();
-
-
-
-function displayData(data){
-	for (var i=0;i<dolazak.length;++i)
-		console.log(polazak[i] + " " + dolazak[i]);
+					console.log(popis);
+	request2.end();
+	console.log("getStationsArray ran");
 }
 
 app.get("/", function (req,res) {
-	res.render("intro", {popis:popis});
-	res.end();
+	///console.log(popis);
+	getStationsArray(function (){
+		res.render("intro", {"popis":popis});
+		res.end();
+		console.log("get /");
+		//console.log(popis);
+	});
 });
 
 app.get("/raspored", function (req,res){
 	//res.writeHead(200, {'Content-Type': 'text/plain'});
 	res.render("raspored", {polazak:polazak, dolazak:dolazak});
 	res.end();
-	console.log("server running");
+	console.log("get raspored");
 });
-app.listen(1000);
 
+app.post("/raspored", function (req,res){
+	var today = new Date();
+	var date = today.getDate() + '.' + (+today.getMonth()+ +1) + '.' + (today.getFullYear()).toString().substring(2,4);
+	getNewPlan(req.body.polaziste, req.body.dolaziste, date, 'D', function (){
+		//console.log(polazak);
+		res.render("raspored", {"polazak":polazak, "dolazak":dolazak});
+		res.end();
+		//console.log(new Date());
+		//console.log(polazak+'+');
+	});
+	console.log("post raspored");
+});
+
+app.listen(1000);
 
 function decodeBuffer(body){
   var str = "";
@@ -169,4 +191,14 @@ function decodeBuffer(body){
    }
   }
   return str;
+}
+
+function toKurac(str){
+	str=str.replace(/Š/gi,'%8A').
+			replace(/Č/gi,'%C8').
+			replace(/Ć/gi,'%C6').
+			replace(/Ž/gi,'%8E').
+			replace(/ /gi,'+');
+
+	return str;
 }
