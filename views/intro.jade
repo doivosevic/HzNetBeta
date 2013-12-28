@@ -5,27 +5,34 @@ html
 		link(rel="stylesheet", href="/intro.css")
 		link(href="http://fonts.googleapis.com/css?family=Open+Sans:400,300", rel="stylesheet" type="text/css")
 		meta(charset="utf-8")
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 	body
+		<script src="js/bootstrap.min.js"></script>
+		<script src="https://code.jquery.com/jquery.js"></script>
 		#content
-			#header
-				#logotext
-					#logoMtext Vlak
-					#logoBtext A de je vlak?
+			#headercontainer
+				#header
+					#logo
+						#logoText Vlak
+						#logoSlogan A de je vlak?
 
-				#headerlinks
-					p link1
-					p link2
+					#headerLinks
+						div link1
+						div link2
 
-			#main
-				form(action="/raspored", method="post")
-					label(for="polaziste") Polaziste
-					input(list="polaziste", name="polaziste")
-					datalist#polaziste
-						each pol in popis
-							option(value=pol)
-					label(for="dolaziste") Dolaziste
-					input(list="dolaziste", name="dolaziste")
-					datalist#dolaziste
-						each dol in popis
-							option(value=dol)
-					input(type="submit", value="submit") Submito
+			#maincontainer
+				#main
+					form(action="/raspored", method="post")#stationsSubmitForm
+						
+							input(list="polaziste", name="polaziste")#fromStation
+							datalist#polaziste
+								each pol in popis
+									option(value=pol)
+							label(for="dolaziste") Dolaziste
+							input(list="dolaziste", name="dolaziste")#toStation
+							datalist#dolaziste
+								each dol in popis
+									option(value=dol)
+						button(type="submit", class="btn btn-default btn-lg")
+							| Dalje

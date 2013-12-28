@@ -1,35 +1,55 @@
 body {
-  font: 14px Open Sans, Arial Black;
+  font: 16px Open Sans, Arial Black;
+  font-weight: 300;
+  margin: 0px;
 }
 #content {
-  width: 1000px;
-  height: 300px;
   margin-left: auto;
   margin-right: auto;
   text-decoration: none;
 }
-#header {
-  font-size: 26px;
-}
-#logotext {
-  text-align: center;
-}
-#logoMtext {
-  font-size: 72px;
-  height: 73px;
-}
-#logoBtext {
-  font-size: 24px;
-}
-#headerlinks {
+#headercontainer {
+  background-color: #000;
+  color: #fff;
   height: 100px;
-  text-align: center;
 }
-#headerlinks > * {
-  display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
+#header {
+  margin: auto;
+  width: 1000px;
+  height: inherit;
+}
+#header > * {
+  float: left;
+}
+#logo {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+#logoText {
+  font-size: 36px;
+  height: 40px;
+}
+#logoSlogan {
+  font-size: 18px;
+  margin-left: 20px;
+}
+#headerLinks {
+  margin-top: 30px;
+  margin-left: 50px;
+}
+#headerLinks > * {
+  float: left;
+  margin-left: 100px;
 }
 #main {
+  margin: auto;
+  width: 1000px;
   height: 500px;
+}
+#stationsSubmitForm {
+  margin-top: 100px;
+  margin-left: 100px;
+}
+#stationsSubmitForm > * {
+  display: block;
 }
