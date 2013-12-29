@@ -2,37 +2,57 @@
 html
 	head
 		title Intro
-		link(rel="stylesheet", href="/intro.css")
 		link(href="http://fonts.googleapis.com/css?family=Open+Sans:400,300", rel="stylesheet" type="text/css")
 		meta(charset="utf-8")
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		link(href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css", rel="stylesheet")
+		link(rel="stylesheet", href="/intro.css")
+		datalist#polaziste
+			each pol in popis
+				option(value=pol)
+		datalist#dolaziste
+			each dol in popis
+				option(value=dol)
 	body
-		<script src="js/bootstrap.min.js"></script>
-		<script src="https://code.jquery.com/jquery.js"></script>
+		script(src="https://code.jquery.com/jquery.js")
+		script(src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js")
+		script.
+			$(document).ready(function () {
+				$('.btn').button();
+				$('#direction-label').prop('disabled', true);
+			});
 		#content
-			#headercontainer
+			#header-container
 				#header
 					#logo
-						#logoText Vlak
-						#logoSlogan A de je vlak?
+						#logo-text Vlak
+						#logo-slogan A de je vlak?
 
-					#headerLinks
+					#header-links
 						div link1
 						div link2
 
 			#maincontainer
 				#main
-					form(action="/raspored", method="post")#stationsSubmitForm
-						
-							input(list="polaziste", name="polaziste")#fromStation
-							datalist#polaziste
-								each pol in popis
-									option(value=pol)
-							label(for="dolaziste") Dolaziste
-							input(list="dolaziste", name="dolaziste")#toStation
-							datalist#dolaziste
-								each dol in popis
-									option(value=dol)
-						button(type="submit", class="btn btn-default btn-lg")
-							| Dalje
+					form(action="/raspored", method="post")#stations-submit-form
+						.input-group
+							.first-label.input-group-addon Polaziste
+							input#from-station.form-control(list="polaziste", name="polaziste")
+						.input-group
+							.first-label.input-group-addon Dolaziste
+							input#to-station.form-control(list="dolaziste", name="dolaziste")
+						.input-group
+							.first-label.input-group-addon Veza
+							.btn-group(data-toggle="buttons")
+								label.btn-radio.btn.btn-default#button-no-border
+									input.btn.btn-default(type="radio", name="direction", value="D")
+									| Direkt
+								label.btn-radio.btn.btn-default
+									input.btn.btn-default(type="radio", name="direction", value="S")
+									| Neki
+								label.btn-radio.btn.btn-default
+									input.btn.btn-default(type="radio", name="direction", value="A")
+									| Svi
+						.input-group
+							button.btn-custom.btn.btn-default(type="submit")
+								| Dalje
