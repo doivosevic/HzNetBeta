@@ -1,10 +1,11 @@
 var http = require('http');
-var jquery = require('jquery');
 var cheerio = require('cheerio');
 var express = require('express');
 var stylus = require('stylus');
 var nib = require('nib');
 var app = express();
+var fs = require('fs');
+var path = require('path');
 
 
 function compile(str,path) {
@@ -26,6 +27,33 @@ app.use(express.static(__dirname + '/public'));
 var dolazak = new Array();
 var polazak = new Array();
 
+function getPageHtml(_host, _path, pos, callback){
+	var options = {
+		host: _host,
+		path: _path,
+		headers: {"Content-Type": "text/html; charset=windows-1250"}
+	}
+	//console.log(1);
+	var request = http.request(options, function (res){
+		var data = new Buffer(0);
+		res.on('data', function (chunk){
+			//console.log(2);
+			data = Buffer.concat([data, chunk]);
+		});
+		res.on('end', function (){
+			//console.log(3);
+			callback(decodeBuffer(data),pos,callback);
+		});
+		res.on('error', function (err){
+			console.log('Ignoring: ' + err);
+		});
+		res.on('uncaughtException', function (err){
+			console.log('Uncaught: ' + err);
+		})
+	});
+	request.end();
+}
+
 function getNewPlan(customPol, customDol, customDate, customDir, callback){
 	// PATH ZA HZNET
 	// **POL** polazni **DOL** dolazni **DATE** datum **DIR** s vezom/bez (D/S)
@@ -38,33 +66,21 @@ function getNewPlan(customPol, customDol, customDate, customDir, callback){
 							.replace(/xxDATExxx/gi,customDate)
 							.replace(/xxDIRxxx/gi, customDir);
 	var options = {
-	    host: 'vred.hzinfra.hr',
-	    path: customPath,
-	    headers: {"Content-Type": "text/html; charset=windows-1250"}
+		host: 'vred.hzinfra.hr',
+		path: customPath,
+		headers: {"Content-Type": "text/html; charset=windows-1250"}
 	}
 
 	var request1 = http.request(options, function (res) {
 		var data = new Buffer(0);
 		dolazak = new Array();
 		polazak = new Array();
-	    res.on('data', function (chunk) {
-	        data = Buffer.concat([data, chunk]);
-	    });
-	    res.on('end', function () {
-	        var $ = cheerio.load(data);
-	        console.log(decodeBuffer(data).text());
-			// DOLAZAK
-			$('td', 'table').filter(function (i,el){
-				return $(this).attr('width') == '8%';
-				}).each(function (i,link){
-					if (i%2==0) dolazak.push((this).html());
-					});
-			// POLAZAK
-			$('td', 'table').filter(function (i,el){
-					return $(this).attr('width') == '10%';
-				}).each(function (i,link){
-					polazak.push($(this).text());
-			});
+		res.on('data', function (chunk) {
+			data = Buffer.concat([data, chunk]);
+		});
+		res.on('end', function () {
+			polazakDolazakD(decodeBuffer(data));
+			polazakDolazakS(decodeBuffer(data));
 			callback();
 		});
 	});
@@ -89,7 +105,9 @@ function getStationsArray(callback){
 			var stan="";
 			popis = new Array();
 			var popisAlpha = new Array();
-			console.log(decodeBuffer(data));
+			polazakDolazakD(decodeBuffer(data));
+			polazakDolazakS(decodeBuffer(data));
+
 			var $ = cheerio.load(decodeBuffer(data));
 
 
@@ -127,12 +145,9 @@ app.get("/raspored", function (req,res){
 });
 
 app.post("/raspored", function (req,res){
-	var today = new Date();
-	var date = today.getDate() + '.' + (+today.getMonth()+ +1) + '.' + (today.getFullYear()).toString().substring(2,4);
-	getNewPlan(req.body.polaziste, req.body.dolaziste, date, req.body.direction, function (){
+	getNewPlan(req.body.polaziste, req.body.dolaziste, timeNow(), req.body.direction, function (){
 		res.render("raspored", {"polazak":polazak, "dolazak":dolazak});
 		res.end();
-		//console.log(req.body)
 	});
 	console.log("post raspored");
 });
@@ -189,3 +204,99 @@ function toKurac(str){
 
 	return str;
 }
+
+function polazakDolazakS(data){
+	var $ = cheerio.load(data);
+	//data = $('body', 'html').children(); //.each(function (i,elem){ console.log(elem + "\n\n" + i);});;
+	//console.log(data);
+
+	//data = $('body','html').contents();
+
+	//console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'+data.search('slika.jpg">'));
+	//data=data.substring(data.search('Images/slika.jpg>'));
+	//data=data.replace(/<(?:.|\n)*?>/gm, '');
+	//data=data.substring(432); //,data.search(/ ">/));
+	//data=data.replace(/ /g,'')
+	//data=data.replace(/\s+/gim, '\n');
+	//data=data.replace(/ /g,'').replace(/\r/g,'').replace(/\n+/g,'\n');
+	//
+	//console.log(data);
+}
+
+function polazakDolazakD(data){
+	var $ = cheerio.load(data);
+	// DOLAZAK
+	$('td', 'table').filter(function (i,el){
+		return $(this).attr('width') == '8%';
+		}).each(function (i,link){
+			if (i%2==0) dolazak.push((this).html());
+			});
+	// POLAZAK
+	$('td', 'table').filter(function (i,el){
+			return $(this).attr('width') == '10%';
+		}).each(function (i,link){
+			polazak.push($(this).text());
+	});
+}
+
+function timeNow(){
+	var today = new Date();
+	var date = today.getDate() + '.' + (+today.getMonth()+ +1) + '.' + (today.getFullYear()).toString().substring(2,4);
+	return date;
+}
+
+function main(){
+	var defHost = "vred.hzinfra.hr";
+	var defPath = "/hzinfo/default.asp?VL=.1&Category=hzinfo&service=vred3&OKL=xxxKOLO1xxx&DKL=72802&DT=1411&K1=%20%20%20%20%20&K2=%20%20%20%20%20&K3=%20%20%20%20%20&ODH=%20%20&DOH=%20%20&SD=S&LANG=HR&SCREEN=3";
+
+	var time = new Date();
+	var last = time.getTime();
+
+	var i = 720;
+	var firstNewPath = defPath.replace(/xxxKOLO1xxx/gi, i.toString());
+
+	var __dirname = "D:\\GitHub\\hznet";
+	var textPath = path.join(__dirname,"/kolodvori.txt");
+	var countPath = path.join(__dirname,"/dijestao.txt");
+	var buffer = new Buffer(0);
+
+
+	fs.readFile(countPath, function (err,data){
+		if (err) console.log(err);
+		else {		
+			//console.log(data);
+			i = data;
+
+			var stream2 = fs.createWriteStream(textPath, {flags: 'a'});
+			
+			stream2.once('open', function (err,fd){ 
+				fs.open(countPath,'w', function (err2,fd2){
+					getPageHtml(defHost, firstNewPath, i, function (html,count,callback){
+
+						if (html.search(/relacija/gi)!=-1) {
+							console.log(count + " " + html.substring(html.search(/relacija/gi),html.search(/ - andrijevci/gi)));
+							stream2.write(count + " " + html.substring(html.search(/relacija/gi),html.search(/ - andrijevci/gi)) + '\n');
+						}
+						else stream2.write(count + ' Nema kolodvora\n');
+						
+						if (count%10==0) console.log(count);
+
+						++count;
+						i = new Buffer(count.toString());
+
+						//console.log('i:' + i);
+						fs.write(fd2, i, 0, i.length, null, function (err,len,buff){ console.log(err); });
+
+						var newPath = defPath.replace(/xxxKOLO1xxx/gi, count);
+						
+						getPageHtml(defHost, newPath, count, callback);
+					});
+				});
+			});
+		}
+	});
+}
+
+
+console.log('Main started.');
+main();
