@@ -113,11 +113,9 @@ function getStationsArray(callback){
 
 			$('script').each(function (i,link){
 				if (i==1){
-					//popis.push("AAČŠĆŽĐ");
 					stan = $(this).toString('utf-8');
 					stan = stan.substring(stan.search('arrSTANICE = new Array'),stan.search('ddUtil'));
 					popisAlpha = stan.split('"');
-					//console.log(popisAlpha);
 					for (var i=3;i<popisAlpha.length;i+=2){
 						popis.push(popisAlpha[i]);
 					}
@@ -135,6 +133,10 @@ app.get("/", function (req,res) {
 		res.render("intro", {"popis":popis});
 		res.end();
 		console.log("get /");
+		var pop = "./popis.json";
+		var popJSON = new Buffer(JSON.stringify(popis,null,'\t'));
+		fs.writeFile(pop,popJSON,function (err,len,buff){ console.log('done'); });
+		console.log("wtf");
 	});
 });
 
@@ -255,7 +257,7 @@ function main(){
 	var i = 720;
 	var firstNewPath = defPath.replace(/xxxKOLO1xxx/gi, i.toString());
 
-	var __dirname = "D:\\GitHub\\hznet";
+	var __dirname = "C:\\dito\\git\\hznetbeta";
 	var textPath = path.join(__dirname,"/kolodvori.txt");
 	var countPath = path.join(__dirname,"/dijestao.txt");
 	var buffer = new Buffer(0);
@@ -275,6 +277,7 @@ function main(){
 
 						if (html.search(/relacija/gi)!=-1) {
 							console.log(count + " " + html.substring(html.search(/relacija/gi),html.search(/ - andrijevci/gi)));
+							console.log('not -1');
 							stream2.write(count + " " + html.substring(html.search(/relacija/gi),html.search(/ - andrijevci/gi)) + '\n');
 						}
 						else stream2.write(count + ' Nema kolodvora\n');
@@ -284,8 +287,7 @@ function main(){
 						++count;
 						i = new Buffer(count.toString());
 
-						//console.log('i:' + i);
-						fs.write(fd2, i, 0, i.length, null, function (err,len,buff){ console.log(err); });
+						fs.write(fd2, i, 0, i.length, 0, function (err,len,buff){ });
 
 						var newPath = defPath.replace(/xxxKOLO1xxx/gi, count);
 						
@@ -297,6 +299,11 @@ function main(){
 	});
 }
 
-
-console.log('Main started.');
-main();
+fs.readFile('./popis.json',function (err,data){
+	if (err) console.log(err);
+	else {
+		var abc = JSON.parse(data);
+		console.log(abc);
+		console.log(abc[0] + ' ' + abc[1]);
+	}
+})

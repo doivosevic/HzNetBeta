@@ -1,124 +1,502 @@
-1 Nema kolodvora
- Nema kolodvora
-1 Nema kolodvora
-2 Nema kolodvora
-3 Nema kolodvora
-4 Nema kolodvora
-5 Nema kolodvora
-6 Nema kolodvora
-7 Nema kolodvora
-8 Nema kolodvora
-9 Nema kolodvora
-10 Nema kolodvora
-11 Nema kolodvora
-12 Nema kolodvora
-13 Nema kolodvora
-14 Nema kolodvora
-15 Nema kolodvora
-16 Nema kolodvora
-17 Nema kolodvora
-18 Nema kolodvora
-19 Nema kolodvora
-20 Nema kolodvora
-21 Nema kolodvora
-22 Nema kolodvora
-23 Nema kolodvora
-24 Nema kolodvora
-25 Nema kolodvora
-26 Nema kolodvora
-27 Nema kolodvora
-28 Nema kolodvora
-29 Nema kolodvora
-30 Nema kolodvora
-31 Nema kolodvora
-32 Nema kolodvora
-33 Nema kolodvora
-34 Nema kolodvora
-35 Nema kolodvora
-36 Nema kolodvora
-37 Nema kolodvora
-38 Nema kolodvora
-39 Nema kolodvora
-40 Nema kolodvora
-41 Nema kolodvora
-42 Nema kolodvora
-43 Nema kolodvora
-44 Nema kolodvora
-45 Nema kolodvora
-46 Nema kolodvora
-47 Nema kolodvora
-48 Nema kolodvora
-49 Nema kolodvora
-50 Nema kolodvora
-51 Nema kolodvora
-52 Nema kolodvora
-53 Nema kolodvora
-54 Nema kolodvora
-55 Nema kolodvora
-56 Nema kolodvora
-57 Nema kolodvora
-58 Nema kolodvora
-59 Nema kolodvora
-60 Nema kolodvora
-61 Nema kolodvora
-62 Nema kolodvora
-63 Nema kolodvora
-64 Nema kolodvora
-65 Nema kolodvora
-66 Nema kolodvora
-67 Nema kolodvora
-68 Nema kolodvora
-69 Nema kolodvora
-70 Nema kolodvora
-71 Nema kolodvora
-72 Nema kolodvora
-73 Nema kolodvora
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
-1.2345678910111213e+138 Nema kolodvora
+<select name="OD">
+  <option value="71402">ANDRIJAŠEVCI        </option>
+  <option value="72802">ANDRIJEVCI          </option>
+  <option value="71506">ANTUNOVAC           </option>
+  <option value="73711">BADLJEVINA          </option>
+  <option value="76502">BAKOVIĆI            </option>
+  <option value="72503">BANOVA JARUGA       </option>
+  <option value="78654">BANJA               </option>
+  <option value="74403">BEDEKOVČINA         </option>
+  <option value="75103">BELAVIĆI            </option>
+  <option value="71705">BELI MANASTIR       </option>
+  <option value="76308">BENKOVAC            </option>
+  <option value="76316">BIBINJE             </option>
+  <option value="73709">BIJELA              </option>
+  <option value="71601">BIJELO BRDO         </option>
+  <option value="71903">BIZOVAC             </option>
+  <option value="73307">BJELOVAR            </option>
+  <option value="73501">BLACKO JAKŠIĆ       </option>
+  <option value="76007">BLATA               </option>
+  <option value="72102">BLINJSKI KUT        </option>
+  <option value="71205">BOROVO-TRPINJA      </option>
+  <option value="77402">BORUT               </option>
+  <option value="73203">BOTOVO              </option>
+  <option value="73112">BOŽJAKOVINA         </option>
+  <option value="76503">BRDAŠCE             </option>
+  <option value="74101">BRDOVEC             </option>
+  <option value="72101">BRĐANI KRAJIŠKI     </option>
+  <option value="73014">BREGI               </option>
+  <option value="73717">BREZINE BUJAVICA    </option>
+  <option value="73302">BREZOVLJANI         </option>
+  <option value="75606">BRGUD               </option>
+  <option value="71507">BRIJEST             </option>
+  <option value="75306">BRLOG GRAD          </option>
+  <option value="75407">BROD MORAVICE       </option>
+  <option value="72705">BRODSKI STUPNIK     </option>
+  <option value="71202">BRŠADIN             </option>
+  <option value="71203">BRŠADIN LIPOVAČA    </option>
+  <option value="75307">BUBNJARCI           </option>
+  <option value="73605">BUČJE-KOPRIVNICA    </option>
+  <option value="74409">BUDINŠĆINA          </option>
+  <option value="71809">BUDROVCI            </option>
+  <option value="76306">BULIĆ               </option>
+  <option value="77425">BUZET               </option>
+  <option value="73912">CABUNA              </option>
+  <option value="73104">CAREVDAR            </option>
+  <option value="76410">CERA                </option>
+  <option value="74702">CERJE TUŽNO         </option>
+  <option value="71403">CERNA               </option>
+  <option value="72008">CEROVLJANI          </option>
+  <option value="77403">CEROVLJE            </option>
+  <option value="73407">CIGLENIK            </option>
+  <option value="73304">CIRKVENA            </option>
+  <option value="71904">CRET                </option>
+  <option value="77413">ČABRUNIĆI           </option>
+  <option value="77422">ČABRUNIĆI SELO      </option>
+  <option value="73906">ČAČINCI             </option>
+  <option value="73405">ČAGLIN              </option>
+  <option value="74860">ČAKOVEC             </option>
+  <option value="74803">ČAKOVEC-BUZOVEC     </option>
+  <option value="74805">ČEHOVEC             </option>
+  <option value="71704">ČEMINAC             </option>
+  <option value="71802">ČEPIN               </option>
+  <option value="73803">ČUKOVEC             </option>
+  <option value="72403">ČULINEC             </option>
+  <option value="76702">DABAR               </option>
+  <option value="76305">DALMATIN. OSTROVICA </option>
+  <option value="71207">DALJ                </option>
+  <option value="71703">DARDA               </option>
+  <option value="73708">DARUVAR             </option>
+  <option value="72513">DEANOVEC            </option>
+  <option value="76314">DEBELJAK            </option>
+  <option value="75412">DELNICE             </option>
+  <option value="75005">DESINEC             </option>
+  <option value="73715">DOBROVAC            </option>
+  <option value="74610">DOLIĆE              </option>
+  <option value="75007">DOMAGOVIĆ           </option>
+  <option value="74503">DONJA STUBICA       </option>
+  <option value="72806">DONJA VRBA          </option>
+  <option value="73706">DONJA VRIJESKA      </option>
+  <option value="75107">DONJE DUBRAVE       </option>
+  <option value="76512">DONJI DOLAC         </option>
+  <option value="74806">DONJI KRALJEVEC     </option>
+  <option value="74406">DONJI LIPOVEC       </option>
+  <option value="74807">DONJI MIHALJEVEC    </option>
+  <option value="71804">DOPSIN              </option>
+  <option value="72605">DRAGALIĆ            </option>
+  <option value="75009">DRAGANIĆI           </option>
+  <option value="73604">DRAGOVCI            </option>
+  <option value="71306">DRENOVCI            </option>
+  <option value="75417">DRIVENIK            </option>
+  <option value="76405">DRNIŠ               </option>
+  <option value="73202">DRNJE               </option>
+  <option value="74402">DUBRAVA ZABOČKA     </option>
+  <option value="75102">DUGA RESA           </option>
+  <option value="72517">DUGO SELO           </option>
+  <option value="74608">DUKOVEC             </option>
+  <option value="74802">DUNJKOVEC           </option>
+  <option value="71808">ĐAKOVO              </option>
+  <option value="76304">ĐEVRSKE             </option>
+  <option value="73703">ĐULOVAC             </option>
+  <option value="73903">ĐURĐENOVAC          </option>
+  <option value="73010">ĐURĐEVAC            </option>
+  <option value="74606">ĐURMANEC            </option>
+  <option value="71208">ERDUT               </option>
+  <option value="71505">ERNESTINOVO         </option>
+  <option value="73904">FERIČANCI           </option>
+  <option value="71912">FRIGIS              </option>
+  <option value="75415">FUŽINE              </option>
+  <option value="71502">GABOS               </option>
+  <option value="74006">GAJNICE             </option>
+  <option value="77416">GALIŽANA            </option>
+  <option value="76313">GALOVCI             </option>
+  <option value="72804">GARČIN              </option>
+  <option value="75106">GENERALSKI STOL     </option>
+  <option value="74708">GOLUBOVEC           </option>
+  <option value="75404">GOMIRJE             </option>
+  <option value="74504">GORNJA STUBICA      </option>
+  <option value="75108">GORNJE DUBRAVE      </option>
+  <option value="75105">GORNJI ZVEČAJ       </option>
+  <option value="76108">GOSPIĆ              </option>
+  <option value="72202">GRABOŠTANI          </option>
+  <option value="76117">GRAČAC              </option>
+  <option value="73109">GRADEC              </option>
+  <option value="71404">GRADIŠTE            </option>
+  <option value="72903">GREDA               </option>
+  <option value="73321">GRGINAC             </option>
+  <option value="73322">GRGINAC NOVI        </option>
+  <option value="71307">GUNJA               </option>
+  <option value="74212">HARMICA             </option>
+  <option value="77407">HEKI                </option>
+  <option value="77420">HEKI TOVARIŠTE      </option>
+  <option value="75003">HORVATI             </option>
+  <option value="72201">HRASTOVAC           </option>
+  <option value="71805">Hrastovac-Vučki     </option>
+  <option value="74408">HRAŠĆINA-TRGOVIŠĆE  </option>
+  <option value="73309">HRSOVO              </option>
+  <option value="72003">HRVATSKA DUBICA     </option>
+  <option value="72204">HRVATSKA KOSTAJNICA </option>
+  <option value="75002">HRVATSKI LESKOVAC   </option>
+  <option value="74401">HUM LUG             </option>
+  <option value="77401">HUM U ISTRI         </option>
+  <option value="71002">ILAČA               </option>
+  <option value="72504">ILOVA               </option>
+  <option value="74704">IVANEC              </option>
+  <option value="72514">IVANIĆ GRAD         </option>
+  <option value="71101">IVANKOVO            </option>
+  <option value="76320">IVOŠEVCI            </option>
+  <option value="73806">JALŽABET            </option>
+  <option value="72001">JASENOVAC           </option>
+  <option value="75006">JASTREBARSKO        </option>
+  <option value="71909">JELISAVAC           </option>
+  <option value="76002">JOSIPDOL            </option>
+  <option value="71901">JOSIPOVAC           </option>
+  <option value="75608">JURDANI             </option>
+  <option value="77414">JURŠIĆI             </option>
+  <option value="75609">JUŠIĆI              </option>
+  <option value="76401">KALDRMA             </option>
+  <option value="73009">KALINOVAC           </option>
+  <option value="75305">KAMANJE             </option>
+  <option value="77410">KANFANAR            </option>
+  <option value="75060">KARLOVAC            </option>
+  <option value="75011">KARLOVAC-Centar     </option>
+  <option value="76514">KAŠTEL GOMILICA     </option>
+  <option value="76513">KAŠTEL KAMBELOVAC   </option>
+  <option value="76508">KAŠTEL STARI        </option>
+  <option value="76509">KAŠTEL SUĆURAC      </option>
+  <option value="76303">KISTANJE            </option>
+  <option value="73306">KLOKOČEVAC          </option>
+  <option value="73008">KLOŠTAR             </option>
+  <option value="73409">KNEŽCI              </option>
+  <option value="76260">KNIN                </option>
+  <option value="78653">KOMIN               </option>
+  <option value="74407">KONJŠĆINA           </option>
+  <option value="78801">KOPANICA-BERAVCI    </option>
+  <option value="73160">KOPRIVNICA          </option>
+  <option value="76411">KOPRNO              </option>
+  <option value="73704">KORENIČANI          </option>
+  <option value="76402">KOSOVO              </option>
+  <option value="75112">KOŠARE              </option>
+  <option value="71906">KOŠKA               </option>
+  <option value="74808">KOTORIBA            </option>
+  <option value="76307">KOŽLOVAC            </option>
+  <option value="77419">KRAJCAR BRIJEG      </option>
+  <option value="74604">KRAPINA             </option>
+  <option value="73107">KRIŽEVCI            </option>
+  <option value="75612">KRNJEVO             </option>
+  <option value="74413">KRUŠLJEVEC          </option>
+  <option value="78656">KRVAVAC             </option>
+  <option value="75110">KUKAČA              </option>
+  <option value="73716">KUKUNJEVAC          </option>
+  <option value="78651">KULA NORINSKA       </option>
+  <option value="74706">KULJEVČICA          </option>
+  <option value="73801">KUNOVEC SUBOTICA    </option>
+  <option value="75410">KUPJAK              </option>
+  <option value="74303">KUPLJENOVO          </option>
+  <option value="74005">KUSTOŠIJA           </option>
+  <option value="72704">KUTI                </option>
+  <option value="72505">KUTINA              </option>
+  <option value="76506">LABIN DALMATINSKI   </option>
+  <option value="74104">LADUČ               </option>
+  <option value="71504">LASLOVO-KORODJ      </option>
+  <option value="76004">LATIN               </option>
+  <option value="73406">LATINOVAC           </option>
+  <option value="75008">LAZINA              </option>
+  <option value="72904">LEKENIK             </option>
+  <option value="73103">LEPAVINA            </option>
+  <option value="74707">LEPOGLAVA           </option>
+  <option value="76318">LEPURI              </option>
+  <option value="75416">LIČ                 </option>
+  <option value="76008">LIČKA JESENICA      </option>
+  <option value="76013">LIČKI PODHUM        </option>
+  <option value="76103">LIČKO LEŠĆE         </option>
+  <option value="73714">LIPIK               </option>
+  <option value="71810">LIPOVAC-KORITNA     </option>
+  <option value="72502">LIPOVLJANI          </option>
+  <option value="75413">LOKVE               </option>
+  <option value="73403">LONDŽICA            </option>
+  <option value="76113">LOVINAC             </option>
+  <option value="73804">LUDBREG             </option>
+  <option value="72510">LUDINA              </option>
+  <option value="74304">LUKA                </option>
+  <option value="77400">LUPOGLAV            </option>
+  <option value="72707">LUŽANI-MALINO       </option>
+  <option value="73404">LJESKOVICA          </option>
+  <option value="75403">LJUBOŠINA           </option>
+  <option value="74801">MACINEC             </option>
+  <option value="74411">MAĐAREVO            </option>
+  <option value="75301">MAHIČNO             </option>
+  <option value="72203">MAJUR               </option>
+  <option value="73106">MAJUREC             </option>
+  <option value="72405">MAKSIMIR            </option>
+  <option value="74804">MALA SUBOTICA       </option>
+  <option value="76705">MANDALINA           </option>
+  <option value="71503">MARKUSICA-ANTIN     </option>
+  <option value="73805">MARTIJANEC          </option>
+  <option value="73705">MASLENJAČA          </option>
+  <option value="75010">MAVRAČIĆI           </option>
+  <option value="76110">MEDAK               </option>
+  <option value="73719">MEĐURIĆ             </option>
+  <option value="75421">MEJA                </option>
+  <option value="75420">MELNICE             </option>
+  <option value="78650">METKOVIĆ            </option>
+  <option value="73503">MIHALJEVCI          </option>
+  <option value="73907">MIKLEUŠ             </option>
+  <option value="71010">MIRKOVCI            </option>
+  <option value="73324">MIŠULINOVAC         </option>
+  <option value="75406">MORAVICE            </option>
+  <option value="72507">MOSLAVAČKA GRAČENICA</option>
+  <option value="72907">MRACLIN             </option>
+  <option value="75101">MRZLO POLJE         </option>
+  <option value="73101">MUČNA REKA          </option>
+  <option value="74904">MURSKO SREDIŠĆE     </option>
+  <option value="76310">NADIN               </option>
+  <option value="73901">NAŠICE              </option>
+  <option value="73401">NAŠICE GRAD         </option>
+  <option value="71908">NAŠIČKA BREZNICA    </option>
+  <option value="71907">NIZA                </option>
+  <option value="71905">NORMANCI            </option>
+  <option value="73908">NOVA BUKOVICA       </option>
+  <option value="72604">NOVA GRADIŠKA       </option>
+  <option value="72708">NOVA KAPELA-BATRINA </option>
+  <option value="77404">NOVAKI              </option>
+  <option value="73808">NOVAKOVEC           </option>
+  <option value="71206">NOVI DALJ           </option>
+  <option value="74301">NOVI DVORI          </option>
+  <option value="74412">NOVI MAROF          </option>
+  <option value="73012">NOVIGRAD PODRAVSKI  </option>
+  <option value="74901">NOVO SELO ROK       </option>
+  <option value="73506">NOVOSELCI           </option>
+  <option value="72511">NOVOSELEC           </option>
+  <option value="72560">NOVSKA              </option>
+  <option value="77428">NUGLA               </option>
+  <option value="71201">NUŠTAR STAJALIŠTE   </option>
+  <option value="76321">OĆESTOVO            </option>
+  <option value="72921">ODRA                </option>
+  <option value="75460">OGULIN              </option>
+  <option value="75402">OGULINSKI HRELJIN   </option>
+  <option value="72606">OKUČANI             </option>
+  <option value="75611">OPATIJA-MATULJI     </option>
+  <option value="78652">OPUZEN              </option>
+  <option value="72706">ORIOVAC             </option>
+  <option value="71006">OROLIK              </option>
+  <option value="74501">OROSLAVJE           </option>
+  <option value="71960">OSIJEK              </option>
+  <option value="71603">OSIJEK DONJI GRAD   </option>
+  <option value="71701">OSIJEK DRAVSKI MOST </option>
+  <option value="71607">OSIJEK LUKA         </option>
+  <option value="71605">OSIJEK OLT          </option>
+  <option value="72516">OSTRNA              </option>
+  <option value="71501">OSTROVO             </option>
+  <option value="75111">OŠTARIJE            </option>
+  <option value="76001">OŠTARIJE RAVNICE    </option>
+  <option value="71303">OTOK                </option>
+  <option value="75303">OZALJ               </option>
+  <option value="73712">PAKRAC              </option>
+  <option value="73713">PAKRAC GRAD         </option>
+  <option value="72006">PAPIĆI              </option>
+  <option value="73325">PAULOVAC            </option>
+  <option value="77405">PAZIN               </option>
+  <option value="73001">PČELIĆ              </option>
+  <option value="73701">PEPELANA            </option>
+  <option value="72801">PERKOVCI            </option>
+  <option value="76412">PERKOVIĆ            </option>
+  <option value="75607">PERMANI             </option>
+  <option value="76106">PERUŠIĆ             </option>
+  <option value="72905">PEŠĆENICA           </option>
+  <option value="71913">PETROVE GORE        </option>
+  <option value="73007">PITOMAČA            </option>
+  <option value="73702">PIVNICA             </option>
+  <option value="76408">PLANJANE            </option>
+  <option value="75419">PLASE               </option>
+  <option value="76005">PLAŠKI              </option>
+  <option value="76006">PLAVČA DRAGA        </option>
+  <option value="76206">PLAVNO              </option>
+  <option value="73601">PLETERNICA          </option>
+  <option value="78680">PLOČE               </option>
+  <option value="73911">PODRAVSKA BISTRICA  </option>
+  <option value="74410">PODRUTE             </option>
+  <option value="74003">PODSUSED STAJALIŠTE </option>
+  <option value="74002">PODSUSED tvornica   </option>
+  <option value="74302">POJATNO             </option>
+  <option value="73718">POLJANA             </option>
+  <option value="73301">POLJANKA            </option>
+  <option value="72509">POPOVAČA            </option>
+  <option value="73720">POTOČANI-KATINAC    </option>
+  <option value="74404">POZNANOVEC          </option>
+  <option value="73502">POŽEGA              </option>
+  <option value="72515">PREČEC STAJALIŠTE   </option>
+  <option value="76504">PRESLO              </option>
+  <option value="76505">PRGOMET             </option>
+  <option value="76501">PRIMORSKI DOLAC     </option>
+  <option value="76704">PRIMORSKI SV. JURAJ </option>
+  <option value="76703">PRIMORSKO VRPOLJE   </option>
+  <option value="71302">PRIVLAKA            </option>
+  <option value="76312">PRKOS               </option>
+  <option value="77417">PULA                </option>
+  <option value="76301">RADUČIĆ             </option>
+  <option value="72608">RAJIĆ               </option>
+  <option value="73802">RASINJA             </option>
+  <option value="76309">RAŠTEVIĆ            </option>
+  <option value="73603">RATKOVICA           </option>
+  <option value="76762">RAŽINE              </option>
+  <option value="75001">REMETINEC           </option>
+  <option value="73108">REPINEC             </option>
+  <option value="72506">REPUŠNICA           </option>
+  <option value="75560">RIJEKA              </option>
+  <option value="76701">RIPIŠTE             </option>
+  <option value="77426">ROČ                 </option>
+  <option value="77427">ROČKO POLJE         </option>
+  <option value="78655">ROGOTIN             </option>
+  <option value="71406">ROKOVCI             </option>
+  <option value="73305">ROVIŠĆE             </option>
+  <option value="76010">RUDOPOLJE           </option>
+  <option value="75610">RUKAVAC             </option>
+  <option value="76507">SADINE              </option>
+  <option value="71902">SAMATOVCI           </option>
+  <option value="71602">SARVAŠ              </option>
+  <option value="77412">SAVIČENTA           </option>
+  <option value="74102">SAVSKI MAROF        </option>
+  <option value="76407">SEDRAMIĆ            </option>
+  <option value="71806">SEMELJCI            </option>
+  <option value="72402">SESVETE             </option>
+  <option value="72401">SESVETSKI KRALJEVEC </option>
+  <option value="72702">SIBINJ              </option>
+  <option value="78802">SIKIREVCI           </option>
+  <option value="73710">SIRAČ               </option>
+  <option value="73327">SIROVA KATALENA     </option>
+  <option value="72901">SISAK               </option>
+  <option value="72103">SISAK CAPRAG        </option>
+  <option value="76404">SIVERIĆ             </option>
+  <option value="75409">SKRAD               </option>
+  <option value="73910">SLADOJEVCI          </option>
+  <option value="71007">SLAKOVCI            </option>
+  <option value="73909">SLATINA             </option>
+  <option value="72807">SLAVONSKI BROD      </option>
+  <option value="78803">SLAVONSKI ŠAMAC     </option>
+  <option value="72701">SLOBODNICA          </option>
+  <option value="77411">SMOLJANCI           </option>
+  <option value="73102">SOKOLOVAC           </option>
+  <option value="76510">SOLIN               </option>
+  <option value="71304">SPAČVA              </option>
+  <option value="76660">SPLIT               </option>
+  <option value="76661">SPLIT PREDGRAĐE     </option>
+  <option value="71008">SREMSKE LAZE        </option>
+  <option value="78657">STABLINA            </option>
+  <option value="71606">STANDARD            </option>
+  <option value="72501">STARA SUBOCKA       </option>
+  <option value="73311">STARE PLAVNICE      </option>
+  <option value="71103">STARI MIKANOVCI     </option>
+  <option value="72703">STARI SLATINIK      </option>
+  <option value="72602">STARO PETROVO SELO  </option>
+  <option value="72803">STARO TOPOLJE       </option>
+  <option value="72007">STAZA               </option>
+  <option value="74703">STAŽNJEVEC          </option>
+  <option value="71104">STRIZIVOJNA VRPOLJE </option>
+  <option value="74502">STUBIČKE TOPLICE    </option>
+  <option value="72902">STUPNO              </option>
+  <option value="73002">SUHOPOLJE           </option>
+  <option value="76315">SUKOŠAN             </option>
+  <option value="73602">SULKOVCI            </option>
+  <option value="72060">SUNJA               </option>
+  <option value="75502">SUŠAK PEĆINE        </option>
+  <option value="74201">SUTLA               </option>
+  <option value="73303">SV. IVAN ŽABNO      </option>
+  <option value="74602">SV. KRIŽ ZAČRETJE   </option>
+  <option value="74416">SVETI ILIJA         </option>
+  <option value="77408">SVETI PETAR U ŠUMI  </option>
+  <option value="75605">ŠAPJANE             </option>
+  <option value="72005">ŠAŠ                 </option>
+  <option value="76760">ŠIBENIK             </option>
+  <option value="71003">ŠIDSKI BANOVCI      </option>
+  <option value="77418">ŠIJANA              </option>
+  <option value="72512">ŠIRINEC             </option>
+  <option value="76311">ŠKABRNJE            </option>
+  <option value="73721">ŠKODINOVAC          </option>
+  <option value="73310">ŠKRINJARI           </option>
+  <option value="75422">ŠKRLJEVO            </option>
+  <option value="76322">ŠOPOT               </option>
+  <option value="74415">ŠPIČKOVINA          </option>
+  <option value="73005">ŠPIŠIĆ BUKOVICA     </option>
+  <option value="74601">ŠTRUCLJEVO          </option>
+  <option value="76012">ŠUŠNJEVO SELO       </option>
+  <option value="71506">TENJSKI-ANTUNOVAC   </option>
+  <option value="76403">TEPLJUH             </option>
+  <option value="75109">TOUNJ               </option>
+  <option value="71001">TOVARNIK            </option>
+  <option value="73504">TRENKOVO            </option>
+  <option value="72404">TRNAVA              </option>
+  <option value="74414">TURČIN              </option>
+  <option value="72906">TUROPOLJE           </option>
+  <option value="76409">UNEŠIĆ              </option>
+  <option value="74460">VARAŽDIN            </option>
+  <option value="73505">VELIKA              </option>
+  <option value="72908">VELIKA GORICA       </option>
+  <option value="74603">VELIKA VES          </option>
+  <option value="74306">VELIKO TRGOVIŠĆE    </option>
+  <option value="73323">VELIKO TROJSTVO     </option>
+  <option value="73902">VELIMIROVAC         </option>
+  <option value="74701">VIDOVEC             </option>
+  <option value="71004">VINKOVAČKI BANOVCI  </option>
+  <option value="71401">VINKOVAČKO NOVO SELO</option>
+  <option value="71160">VINKOVCI            </option>
+  <option value="71309">VINKOVCI BOLNICA    </option>
+  <option value="73011">VIRJE               </option>
+  <option value="73003">VIROVITICA          </option>
+  <option value="73004">VIROVITICA GRAD     </option>
+  <option value="71807">VIŠKOVCI            </option>
+  <option value="71910">VIŠNJEVAC           </option>
+  <option value="71911">VIŠNJEVAC IPK       </option>
+  <option value="72002">VIŠNJICA            </option>
+  <option value="71803">VLADISLAVCI         </option>
+  <option value="77415">VODNJAN             </option>
+  <option value="77421">VODNJAN STAJALIŠTE  </option>
+  <option value="71914">VODOVOD             </option>
+  <option value="71102">VOĐINCI             </option>
+  <option value="73105">VOJAKOVAČKI KLOŠTAR </option>
+  <option value="76003">VOJNOVAC            </option>
+  <option value="72205">VOLINJA             </option>
+  <option value="72508">VOLODER             </option>
+  <option value="74001">VRAPČE              </option>
+  <option value="75414">VRATA               </option>
+  <option value="74903">VRATIŠINEC          </option>
+  <option value="71305">VRBANJA             </option>
+  <option value="72601">VRBOVA              </option>
+  <option value="73110">VRBOVEC             </option>
+  <option value="75405">VRBOVSKO            </option>
+  <option value="76011">VRHOVINE            </option>
+  <option value="76302">VUJASINOVIĆI        </option>
+  <option value="73006">VUKOSAVLJEVICA      </option>
+  <option value="71452">VUKOVAR             </option>
+  <option value="71204">VUKOVAR-BOROVO NAS. </option>
+  <option value="73707">VUKOVJE             </option>
+  <option value="74307">ZABOK               </option>
+  <option value="76317">ZADAR               </option>
+  <option value="72805">ZADUBRAVLJE         </option>
+  <option value="72480">ZAGREB GL. KOL.     </option>
+  <option value="72922">ZAGREB KLARA        </option>
+  <option value="74060">ZAGREB ZAP. KOL.    </option>
+  <option value="75411">ZALESINA            </option>
+  <option value="75304">ZALUKA              </option>
+  <option value="72603">ZAPOLJE             </option>
+  <option value="74004">ZAPREŠIĆ            </option>
+  <option value="74007">ZAPREŠIĆ-SAVSKA     </option>
+  <option value="73408">ZARILAC             </option>
+  <option value="73807">ZBELAVA             </option>
+  <option value="73905">ZDENCI-ORAHOVICA    </option>
+  <option value="75004">ZDENČINA            </option>
+  <option value="74405">ZLATAR-BISTRICA     </option>
+  <option value="75418">ZLOBIN              </option>
+  <option value="73402">ZOLJAN              </option>
+  <option value="75302">ZORKOVAC            </option>
+  <option value="76203">ZRMANJA             </option>
+  <option value="75104">ZVEČAJ              </option>
+  <option value="73308">ŽABJAK              </option>
+  <option value="74305">ŽEINCI              </option>
+  <option value="76406">ŽITNIĆ              </option>
+  <option value="72004">ŽIVAJA              </option>
+  <option value="77409">ŽMINJ               </option>
+  <option value="75408">ŽRNOVAC             </option>
+  <option value="71405">ŽUPANJA             </option>
+  <option value="74605">ŽUTNICA             </option>
+</select>
